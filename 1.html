@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<script>
+
+</script>
+
+<head>
+    <meta charSet="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+
+
+        // function calculateSum() {
+        //     // 获取第一组单选按钮选中的值
+        //     var group1Value = document.querySelector('input[name="group1"]:checked').value;
+        //     if (!group1Value) {
+        //
+        //         return;
+        //     }
+        //
+        //     // 获取第二组单选按钮选中的值
+        //     var group2Value = document.querySelector('input[name="group2"]:checked').value;
+        //     if (!group2Value) {
+        //
+        //         return;
+        //     }
+        //     // 获取第三组单选按钮选中的值
+        //     var group3Value = document.querySelector('input[name="group3"]:checked').value;
+        //     if (!group3Value) {
+        //
+        //         return;
+        //     }
+        //     // 获取第四组单选按钮选中的值
+        //     var group4Value = document.querySelector('input[name="group4"]:checked').value;
+        //     if (!group4Value) {
+        //
+        //         return;
+        //     }
+        //
+        //     // 计算总和
+        //     var sum = parseInt(group1Value) + parseInt(group2Value)+parseInt(group3Value) + parseInt(group4Value);
+        //
+        //     // 弹出包含总和的提示框
+        //     alert("两个值的和是: " + sum);
+        // }
+
+        function init() {
+            // 获取单选按钮和用于显示结果的元素
+            var numberInput = document.getElementById('numberInput');
+            var group1Inputs = document.getElementsByName('group1');
+            var group2Inputs = document.getElementsByName('group2');
+            var group3Inputs = document.getElementsByName('group3');
+            var group4Inputs = document.getElementsByName('group4');
+            var sumElement = document.getElementById('sum');
+
+
+            //计算表单种的数据
+
+            numberInput.addEventListener('input', calculateSum);
+            // 为每组单选按钮添加事件监听器
+            for (var i = 0; i < group1Inputs.length; i++) {
+                group1Inputs[i].addEventListener('change', calculateSum);
+            }
+            for (var i = 0; i < group2Inputs.length; i++) {
+                group2Inputs[i].addEventListener('change', calculateSum);
+            }
+            for (var i = 0; i < group3Inputs.length; i++) {
+                group3Inputs[i].addEventListener('change', calculateSum);
+            }
+            for (var i = 0; i < group4Inputs.length; i++) {
+                group4Inputs[i].addEventListener('change', calculateSum);
+            }
+
+            // 初始计算
+            calculateSum();
+        }
+
+        // 计算和显示总和的函数
+        function calculateSum() {
+            // 获取两组单选按钮中选中项的值
+
+            var numberValue = parseInt(numberInput.value, 10); // 数字框的值转换为整数
+            var group1Value = document.querySelector('input[name="group1"]:checked') ? document.querySelector('input[name="group1"]:checked').value : 0;
+            var group2Value = document.querySelector('input[name="group2"]:checked') ? document.querySelector('input[name="group2"]:checked').value : 0;
+            var group3Value = document.querySelector('input[name="group3"]:checked') ? document.querySelector('input[name="group3"]:checked').value : 0;
+            var group4Value = document.querySelector('input[name="group4"]:checked') ? document.querySelector('input[name="group4"]:checked').value : 0;
+
+            // 计算总和
+            var sum = parseFloat(group1Value) + parseFloat(group2Value)+parseFloat(group3Value) + parseFloat(group4Value)+numberValue;
+
+            // 在页面上显示总和
+            if(isNaN(sum)){
+                sum=0;
+            }
+            document.getElementById('sum').textContent =  sum;
+        }
+
+        // 当页面加载完成后执行init函数
+        window.onload = init;
+    </script>
+</head>
+
+
+
+<body  >
+<h1 style="background-color: rgb(25,118,210);margin-bottom: 50px;padding: 4px;font-size: 25px;font-weight: bold",>
+    <text style="margin-left: 60px">PORTLARS Caculator V1.0</text>
+</h1>
+
+
+<p STYLE="margin-bottom: 20px;">
+    PORTLARS, or the POst-RadioTherapy Low Anterior Resection Syndrome prediction model, is a mathematical model designed to help doctors evaluate the risk of long-term severe bowel dysfunction after anterior resection proceeded by radiotherapy in rectal cancer patients. Low Anterior Resection Syndrome (LARS) scoring system is used to assess the bowel dysfunction.
+
+</p>
+<p STYLE="margin-bottom: 20px;">
+    The interactive PORTLARS tool is easy to use. Simply input 5 clinical variables shown below, and the risk of major LARS would be presented.
+</p>
+
+<p STYLE="margin-bottom: 20px;">The PORTLARS tool does not collect or store any individual data.</p>
+
+<hr style="background-color: cornflowerblue;border: none;/* 移除默认边框 */height: 2px;/* 设置高度 */margin-left: 100px;">
+
+<form>
+<form1>
+    Pathological nodal-stage:
+        <br>
+</form1>
+
+<input1-margin>
+    <input type="radio"  name="group1" value="10">Negative
+
+</input1-margin>
+    <input type="radio" name="group1" value="20">positive
+
+</form>
+
+<form>
+    <form1>
+        Option of proximal colon:
+
+    </form1>
+    <br>
+    <input1-margin>
+        <input type="radio"  name="group2" value="30">Sigmoid
+
+    </input1-margin>
+    <input type="radio" name="group2" value="40">Descending
+
+</form>
+
+
+<form>
+    <form1>
+        Subclinical anastomotic leakage:
+
+    </form1>
+    <br>
+    <input1-margin>
+        <input type="radio"  name="group3" value="30">No
+
+    </input1-margin>
+    <input type="radio" name="group3" value="40">Yes
+
+</form>
+<form>
+    <form1>
+        Pathological nodal-stage:
+
+    </form1>
+    <br>
+    <input1-margin>
+        <input type="radio"  name="group4" value="30">No
+
+    </input1-margin>
+    <input type="radio" name="group4" value="40">Yes
+
+</form>
+
+<form style="height: 60px">
+    <label for="numberInput" >Length of distal rectum (cm):</label><br>
+    <input type="number" id="numberInput" name="numberInput" style="background-color: rgb(232,232,232);border-radius: 5px;border: grey;height: 40px;width:100%;outline: none;" class="custom-cursor" ><br>
+</form>
+
+<hr style="background-color: cornflowerblue;border: none;/* 移除默认边框 */height: 2px;/* 设置高度 */margin-left: 120px;">
+<p  style="margin-bottom: 10px">Result</p>
+<p  style="color: grey;font-size: x-small">Risk of Major LARS(%)</p>
+<p id="sum" style=""></p>
+<hr style="border-style: dashed;color: lightgrey;margin-left: 120px;">
+<hr style="background-color: cornflowerblue;border: none;/* 移除默认边框 */height: 2px;/* 设置高度 */margin-left: 120px;">
+<p STYLE="margin-bottom: 20px;">
+    Note:
+    <br>1. The option of proximal colon for anastomosis refers to surgical reports.
+    <br>2. The length of distal rectum is measured on MRI or CT images.
+    <br>3. Diagnosis of anastomostic leakage (AL) is in accordance with the proposal by the International Study Group of Rectal Cancer (ISREC). Briefly, clinical AL refers to Grade B/C by ISREC; subclinical AL refers to Grade A.
+</p>
+<hr style="background-color: cornflowerblue;border: none;/* 移除默认边框 */height: 2px;/* 设置高度 */margin-left: 120px;">
+<p STYLE="margin-bottom: 20px;">
+    Appendix1：
+    <br>Definition and Grading of Anastomotic Leakage Following Anterior Resection of The Rectum by ISREC
+
+<table style="margin-left: 120px;width: 1125px;border-radius: 20px;font-size: smaller;margin-bottom: 20px;padding: 3px" border="1px" >
+    <thead>
+    <tr>
+        <td></td>
+        <td>GradeA</td>
+        <td>GradeB</td>
+        <td>GradeC</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr style="background-color: rgb(238,238,238)">
+        <td>Clinical condition</td>
+        <td>Good</td>
+        <td>Mild/moderate discomfort</td>
+        <td>Severely impaired</td>
+    </tr>
+    <tr style="background-color: rgb(238,238,238)">
+        <td>Clinical symptoms</td>
+        <td>No</td>
+        <td><li>Abdominal/pelvic pain<br>
+            <li>Purulent/fecal vaginal discharge<br>
+            <li>Turbid/purulent rectal discharge<br>
+        </td>
+        <td><li>Peritonitis
+            <br><li>Septicemia/sepsis
+        </td>
+    </tr><tr style="background-color: rgb(238,238,238)">
+        <td>Drain (if present)</td>
+        <td>Serous/turbid fluid</td>
+        <td>Turbid/purulent (fecal) content</td>
+        <td>Fecal (purulent) content</td>
+    </tr><tr style="background-color: rgb(238,238,238)">
+        <td>Laboratory tests</td>
+        <td>Normal</td>
+        <td><li>Leukocytosis
+        <br><li>C-reactive protein elevation
+        </td>
+        <td><li>Leukocytosis<br>
+            <li>C-reactive protein elevation<br>
+            <li>Changes owing to sepsis (eg, leukopenia)
+        </td>
+    </tr><tr style="background-color: rgb(238,238,238)">
+        <td>Radiological evaluation</td>
+        <td>Small, contained</td>
+        <td>Local complications (eg, pelvic abscess)</td>
+        <td>Generalized complications (ie, peritonitis)</td>
+    </tr><tr style="background-color: rgb(238,238,238)">
+        <td>Specific treatment</td>
+        <td>No</td>
+        <td><li>Antibiotics<br>
+            <li>Interventional drainage<br>
+            <li>Transanal lavage/drainage</td>
+        <td>Re-laparotomy with control of septic focus</td>
+    </tr>
+    </tbody>
+</table>
+
+</p>
+<hr style="background-color: cornflowerblue;border: none;/* 移除默认边框 */height: 2px;/* 设置高度 */margin-left: 120px;">
+<p STYLE="margin-bottom: 20px;">
+    Appendix2：
+    <br>The LARS Questionnaire and Scoring System
+    <br>The aim of this questionnaire is to assess your bowel function. Please tick only one box for each question. It may be difficult to select only one answer, as we know that for some patients symptoms vary from day to day. We would kindly ask you to choose one answer which best describes your daily life. If you have recently had an infection affecting your bowel function, please do not take this into account and focus on answering questions to reflect your usual daily bowel function.
+</p>
+<hr style="background-color: cornflowerblue;border: none;/* 移除默认边框 */height: 2px;/* 设置高度 */margin-left: 120px;">
+<img src="ac.png" style="margin-left: 100px" width="500px">
+</body>
+
+
+<style >
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    h1{
+        color: white;
+        font-size: 33px;
+        font-weight: lighter;
+    }
+    p{
+        margin-left: 120px;
+        margin-right: 120px;
+        font-size: 13px;
+
+
+    }
+    form{
+        padding: 10px;
+
+        margin-left: 120px;
+        margin-right: 120px;
+        background-color: rgb(245,245,245);
+        margin-bottom: 20px;
+        height: 40px;
+        border-radius: 10px;
+
+    }
+    form1{
+        margin-left: 10px;
+        margin-bottom: 10px;
+        background-color: rgb(245,245,245);
+
+    }
+
+</style>
+<style>
+    hr {
+
+        margin-right: 120px;
+
+
+        /* 设置颜色 */
+        margin-bottom: 20px;
+
+    }
+    button{
+
+        margin-left: 120px;
+        margin-right: 120px;
+    }
+    input1-margin{
+        margin-left: 10px;
+        margin-right: 20px;
+    }
+    input{
+
+        margin-right: 5px;
+    }
+    input[type="number"] {
+
+        padding: 0;
+
+    }
+    table {
+        border-collapse: collapse; /* 使边框合并为单一边框 */
+        border-radius: 5px;
+    }
+
+    table, th, td {
+        border: 1px solid lightgrey; /* 细边框的宽度和颜色 */
+
+    }
+</style>
+
+
+</html>
